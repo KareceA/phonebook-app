@@ -10,8 +10,3 @@ This is a phonebook app which will receive ghanain phone numbers andperform some
 *Resource
 
 and many more.
-
-# Technologies used
-
-*Docker
-*Firebase
