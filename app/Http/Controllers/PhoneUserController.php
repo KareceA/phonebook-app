@@ -13,9 +13,9 @@ class PhoneUserController extends Controller
         $phone_user = new PhoneUser();
 
         $phone_user->first_name = $request->input('first_name');
-        $phone_user->last_name = $request->input('first_name');
-        $phone_user->phone_number = $request->input('first_name');
-        $phone_user->gender = $request->input('first_name');
+        $phone_user->last_name = $request->input('last_name');
+        $phone_user->phone_number = $request->input('phone_number');
+        $phone_user->gender = $request->input('gender');
 
         $phone_user->save();
         return response()->json($phone_user);
