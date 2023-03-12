@@ -16,18 +16,21 @@ class UserPhoneSeeder extends Seeder
      */
     public function run()
     {
-        PhoneUser::table('phone_users')->insert([
-            'first_name' => Str::random(10),
-            'last_name' => Str::random(10),
+        PhoneUser::query()->create([
+            'first_name' => 'El-Karece',
+            'last_name' => 'Asiedu',
+            'email' => 'karece@gmail.com',
             'phone_number' => 0201234567,
             'gender' => 'female',
         ]);
 
-        PhoneUser::table('phone_users')->insert([
-            'first_name' => Str::random(10),
-            'last_name' => Str::random(10),
-            'phone_number' => 0201234567,
+        PhoneUser::query()->create([
+            'first_name' => 'Adwoa',
+            'last_name' => 'Amoakoa',
+            'email' => 'adwoa@gmail.com',
+            'phone_number' => 02013456734,
             'gender' => 'female',
         ]);
+
     }
 }
