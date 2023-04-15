@@ -26,10 +26,10 @@ class UserRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => ['required', 'string', 'min:5', 'max:10'],
+            'first_name' => ['required', 'string', 'min:4', 'max:10'],
             'last_name' => ['required', 'string', 'min:5', 'max:10'],
             'email' => ['sometimes', 'email', 'unique:phone_users,email'],
-            'phone' => ['required', 'string', 'min:10', 'max:10'],
+            'phone_number' => ['required', 'string', 'min:10', 'max:10'],
             'gender' => ['sometimes', Rule::in(PhoneUser::GENDERS)],
         ];
     }
