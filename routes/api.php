@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/create', [PhoneUserController::class, 'create']);
+
+Route::get('/show', [PhoneUserController::class, 'show']);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Actions\UserRegisterAction;
 use App\Http\Requests\UserRegisterRequest;
 use App\Http\Resources\PhoneUserResource;
+use App\Http\Resources\ShowUsersResource;
+use App\Models\PhoneUser;
 use Exception;
 
 class PhoneUserController extends Controller
@@ -21,5 +23,11 @@ class PhoneUserController extends Controller
         } catch (Exception $exception) {
             report($exception);
         }
+    }
+
+    public function show()
+    {
+        $users = PhoneUser::all();
+        return ShowUsersResource::collection($users);
     }
 }
