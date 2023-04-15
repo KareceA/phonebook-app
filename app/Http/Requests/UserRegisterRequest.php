@@ -15,7 +15,7 @@ class UserRegisterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,10 +28,9 @@ class UserRegisterRequest extends FormRequest
         return [
             'first_name' => ['required', 'string', 'min:5', 'max:10'],
             'last_name' => ['required', 'string', 'min:5', 'max:10'],
-            'email' => ['sometimes', 'email', 'unique:phone_users,email' ],
+            'email' => ['sometimes', 'email', 'unique:phone_users,email'],
             'phone' => ['required', 'string', 'min:10', 'max:10'],
             'gender' => ['sometimes', Rule::in(PhoneUser::GENDERS)],
         ];
-
     }
 }

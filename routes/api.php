@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/store', [PhoneUserController::class, 'store']);
+Route::post('/create', [PhoneUserController::class, 'create']);
