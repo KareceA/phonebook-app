@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhoneUserController;
@@ -25,3 +26,5 @@ Route::post('/create', [PhoneUserController::class, 'create']);
 Route::get('/show', [PhoneUserController::class, 'show']);
 
 Route::get('/getFemales', [PhoneUserController::class, 'getFemales']);
+
+Route::post('/sendEmail', [MailController::class, 'sendEmail']);
