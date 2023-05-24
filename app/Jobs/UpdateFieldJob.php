@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\PhoneUser;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -9,7 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class CheckNetworkJob implements ShouldQueue
+class UpdateFieldJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -30,6 +31,10 @@ class CheckNetworkJob implements ShouldQueue
      */
     public function handle()
     {
-        //
+        try {
+            return PhoneUser::where('gender', '=', 'male')->latest()->first()->update(['nickname' => 'manny']) ? true : false;
+        } catch (\Exception $exception) {
+            return $exception;
+        }
     }
 }

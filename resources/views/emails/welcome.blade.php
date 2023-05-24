@@ -9,7 +9,7 @@
 <body>
     <h1>Welcome to Our Application</h1>
 
-    <p>Dear Karece,</p>
+    <p>Dear User,</p>
 
     <p>Welcome to our application! We are thrilled to have you as a new user.</p>
 
