@@ -28,3 +28,5 @@ Route::get('/show', [PhoneUserController::class, 'show']);
 Route::get('/getFemales', [PhoneUserController::class, 'getFemales']);
 
 Route::post('/sendEmail', [MailController::class, 'sendEmail']);
+
+Route::get('/sendSms', [SmsController::class, 'sendSms']);
