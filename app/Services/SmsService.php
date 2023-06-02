@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
+use App\Http\Requests\SmsRequest;
 use Exception;
 use Illuminate\Support\Facades\Http;
 
 class SmsService
 {
-    public static function send($request)
+    public static function send(SmsRequest $request)
     {
         try {
             logger('SENDING SMS');
