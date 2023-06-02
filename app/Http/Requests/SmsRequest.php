@@ -24,7 +24,7 @@ class SmsRequest extends FormRequest
     public function rules()
     {
         return [
-            'to' => ['digits:12', 'required'],
+            'to' => ['digits:10', 'required'],
             'from' => ['string', 'required', 'max:11'],
             'sms' => ['string', 'required']
         ];

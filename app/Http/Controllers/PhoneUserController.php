@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\GetFemalesAction;
 use App\Actions\UserRegisterAction;
+use App\Events\SendSmsEvent;
 use App\Http\Requests\UserRegisterRequest;
 use App\Http\Resources\PhoneUserResource;
 use App\Http\Resources\ShowUsersResource;
@@ -15,11 +16,27 @@ class PhoneUserController extends Controller
     public function create(UserRegisterAction $action, UserRegisterRequest $request)
     {
         try {
-            $response = $action->handle($request);
-            return new PhoneUserResource($response);
-            // return response()->json([
-            //     'message' => 'User created successfully!',
-            //     'data' => $response], 201);
+
+            $response = new PhoneUserResource($action->handle($request));
+            if (!$response) {
+                return response()->json(
+                    [
+                        'message' => 'User was not created!',
+                        'data' => $response
+                    ],
+                    500
+                );
+            } else {
+                event(new SendSmsEvent($request->phone_number));
+
+                return response()->json(
+                    [
+                        'message' => 'User created successfully!',
+                        'data' => $response
+                    ],
+                    201
+                );
+            }
         } catch (Exception $exception) {
             report($exception);
         }

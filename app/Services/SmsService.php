@@ -18,7 +18,7 @@ class SmsService
                 [
                     'action' => 'send-sms',
                     'api_key' => env('ARKESEL_API_KEY'),
-                    'to' => $request->to,
+                    'to' => '233' . substr($request->to, 1),
                     'from' => $request->from,
                     'sms' => $request->sms
                 ]

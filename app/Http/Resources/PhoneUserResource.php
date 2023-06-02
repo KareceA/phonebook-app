@@ -18,6 +18,7 @@ class PhoneUserResource extends JsonResource
         return [
             'FirstName' => ucfirst($this->first_name),
             'LastName' => ucfirst($this->last_name),
+            'PhoneNumber' => $this->phone_number,
             'Email' => $this->email,
             'Date' => Carbon::parse($this->created_at)->format('l, jS F')
         ];
