@@ -25,10 +25,10 @@ class SendSmsListener
      * @param  \App\Events\SendSmsEvent  $event
      * @return void
      */
-    public function handle(SendSmsEvent $event, $phoneUser)
+    public function handle(SendSmsEvent $event)
     {
         logger('Inside Sms Listener');
 
-        SmsService::send($phoneUser);
+        SmsService::send($event->phoneUser);
     }
 }

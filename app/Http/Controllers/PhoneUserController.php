@@ -18,25 +18,15 @@ class PhoneUserController extends Controller
         try {
 
             $response = new PhoneUserResource($action->handle($request));
-            if (!$response) {
-                return response()->json(
-                    [
-                        'message' => 'User was not created!',
-                        'data' => $response
-                    ],
-                    500
-                );
-            } else {
-                event(new SendSmsEvent($request->phone_number));
+            event(new SendSmsEvent($request->phone_number));
 
-                return response()->json(
-                    [
-                        'message' => 'User created successfully!',
-                        'data' => $response
-                    ],
-                    201
-                );
-            }
+            return response()->json(
+                [
+                    'message' => 'User created successfully!',
+                    'data' => $response
+                ],
+                201
+            );
         } catch (Exception $exception) {
             report($exception);
         }

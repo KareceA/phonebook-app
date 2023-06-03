@@ -20,7 +20,7 @@ class SendSmsEvent
      *
      * @return void
      */
-    public function __construct(string $phoneUser)
+    public function __construct(public string $phoneUser)
     {
         //
     }
