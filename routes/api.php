@@ -30,3 +30,7 @@ Route::get('/getFemales', [PhoneUserController::class, 'getFemales']);
 Route::post('/sendEmail', [MailController::class, 'sendEmail']);
 
 Route::get('/sendSms', [SmsController::class, 'sendSms']);
+
+Route::post('/infoBipSms', [SmsController::class, 'infoBipSms']);
+
+Route::post('/fayaSms', [SmsController::class, 'fayaSms']);
