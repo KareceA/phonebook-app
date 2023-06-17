@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\SendSmsAction;
 use App\Http\Requests\SmsRequest;
-use App\Services\FayaSmsService;
+use App\Services\FayaSms;
 use App\Services\InfoBipService;
 
 class SmsController extends Controller
@@ -21,12 +21,10 @@ class SmsController extends Controller
         return InfoBipService::send();
     }
 
-
     public function fayaSms()
     {
         logger('Inside Faya Controller');
 
-
-        return FayaSmsService::send();
+        return FayaSms::send();
     }
 }

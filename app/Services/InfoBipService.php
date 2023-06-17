@@ -2,10 +2,12 @@
 
 namespace App\Services;
 
+use http\Client;
 use Illuminate\Support\Facades\Http;
 
 class InfoBipService
 {
+
     public static function send()
     {
         $response = Http::withHeaders([
@@ -14,18 +16,17 @@ class InfoBipService
         ])->post(
             'https://4myv91.api.infobip.com/sms/2/text/advanced',
             [
-                'messages' => [
-                    [
-                        'from' => 'InfoSMS',
-                        'destinations' => [
-                            ['to' => "233542398444"]
-                        ],
-                        'text' => 'This is a message from InfoBip Sms Service',
+                    'messages' => [
+                        [
+                            'from' => 'InfoSMS',
+                            'destinations' => [
+                                ['to' => "233542398444"]
+                            ],
+                            'text' => 'This is a message from InfoBip Sms Service',
+                        ]
                     ]
-                ]
             ],
         );
-
 
         return $response->json();
     }

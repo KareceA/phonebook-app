@@ -1,19 +1,15 @@
 <?php
 
-
 namespace App\Services;
-
 
 use http\Client;
 use Illuminate\Support\Facades\Http;
 
-
-class FayaSmsService
+class FayaSms
 {
     public static function send()
     {
         logger('Inside Faya Service');
-
 
         $response = Http::withHeaders([
             'fayasms-developer' => '66807884' . 'kG4N7PFdFe8Uu5LBpc7xwB7Y2u4tHCq1',
@@ -25,7 +21,6 @@ class FayaSmsService
                 'recipients' => ['233200327946']
             ],
         );
-
 
         logger($response);
         return $response->json();
