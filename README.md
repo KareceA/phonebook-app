@@ -4,9 +4,10 @@
 
 This is a phonebook app which will receive ghanain phone numbers andperform some checks like verify network and length. This laravel project to dive into some features of laravel. This project will feature some laravel features:
 
-*Events and Listeners
-*Jobs
-*Actions
-*Resource
+\nEvents and Listeners \n Jobs
+\nActions
+\nResource
+\nServices
+\nNotifications
 
 and many more.
