@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/test', [TestDataController::class, 'sendTestNotification']);
+
+Route::get('/users', [TestDataController::class, 'sendTestNotification']);
